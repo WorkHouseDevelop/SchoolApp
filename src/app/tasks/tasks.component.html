@@ -1,0 +1,35 @@
+<section>
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-10">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="fw-normal mb-0 text-black">Tareas</h3>
+          <div>
+            <p (click)="sortByStatus()" class="mb-0"><span class="text-muted">Ordenar Por: </span>
+              <u *ngIf="statusSort == taskStatus.Pending">Pendientes</u>
+              <u *ngIf="statusSort == taskStatus.Published">Publicadas</u>
+              <u *ngIf="statusSort == taskStatus.Dued">Vencidas</u>
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <select class="form-select m-1 mb-4" name="miselect" [(ngModel)]="selectedDate">
+            <option *ngFor="let currentDate of dates" [value]="currentDate.id">{{currentDate.name}}</option>
+          </select>
+        </div>
+        <hr />
+        <div>
+          <button class="btn btn-success col-12 save ">
+            <i class="bi bi-database-up " style="font-size: large; float: left;"></i> <span>Agregar nueva tarea</span>
+          </button>
+        </div>
+        <div class="overflow-auto p-1" style="max-height: 500px;">
+          <app-task role="button" *ngFor="let task of this.tasks" [task]="task"></app-task>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

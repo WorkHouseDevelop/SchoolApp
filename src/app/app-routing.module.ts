@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LocationComponent } from './location/location.component';
+import { AttendanceComponent } from './attendance/attendance.component';
+import { TasksComponent } from './tasks/tasks.component';
 const routes: Routes = [
   {
     path: "",
-    component: LocationComponent
-
+    component: AttendanceComponent
+  },
+  {
+    path: "tasks",
+    component: TasksComponent
   }
 ];
 

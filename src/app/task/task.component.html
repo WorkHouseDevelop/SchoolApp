@@ -1,0 +1,26 @@
+<div role="button" class="card rounded-3 mb-2" [ngStyle]="{'background-color': getColorByStatus() }">
+  <div class="card-body p-2">
+    <div class="row d-flex justify-content-between align-items-center"
+      [style]="{'color': task.status == taskStatus.Pending ? 'black' : 'white' }">
+      <div style="text-align: center;">
+        <p class="fw-bolder m-0">{{task.name}}</p>
+        <div class="d-flex justify-content-around m-0">
+          <p class="m-0">Creada Hoy</p>
+          <p class="m-0">Publicada ayer</p>
+        </div>
+      </div>
+      <div *ngIf=" task.detail">
+        <div class="d-flex justify-content-between m-0" (click)="saveTask(task)">
+          <label for="exampleFormControlTextarea1" class="form-label">Detalle de la tarea</label>
+        </div>
+        <textarea [(ngModel)]="task.detail" class="form-control" rows="2">
+        </textarea>
+      </div>
+      <div *ngIf="task.detail" class="mt-1" style="float: right;">
+        <button class="btn btn-success save">
+          <i class="bi bi-database-up " style="font-size: large;"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
