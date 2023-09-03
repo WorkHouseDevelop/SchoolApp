@@ -1,3 +1,19 @@
-<p>location works!</p>
-<p>Cantidad de request guardados {{locations}}</p>
-<button style="color: #656206;" (click)="startSendLocation()">Start Send Location</button>
+
+<div class="container">
+    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+        <div  *ngFor="let item of items" [class.right]="isMyMsg(item.user)">
+            <div class="msg">
+                <div class="msg-text">
+                    {{item.message}} 
+                </div>
+                <div class="msg-date">
+                    {{setDate(item.createdAt)}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="action uk-flex">
+        <input class="uk-input" [(ngModel)]="msg" type="text" placeholder="Escriba un mensaje" aria-label="Input">
+        <button (click)="addItems()" class="uk-button uk-button-primary">Enviar</button>
+    </div>
+</div>

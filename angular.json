@@ -44,13 +44,12 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "7mb",
+                  "maximumError": "14mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "6kb"
                 }
               ],
               "fileReplacements": [
@@ -101,6 +100,37 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2,
+            "browserTarget": "schoolApp:build:production"
+          }
+        },
+        "ionic-cordova-serve": {
+          "builder": "@ionic/angular-toolkit:cordova-serve",
+          "options": {
+            "cordovaBuildTarget": "schoolApp:ionic-cordova-build",
+            "devServerTarget": "schoolApp:serve"
+          },
+          "configurations": {
+            "production": {
+              "cordovaBuildTarget": "schoolApp:ionic-cordova-build:production",
+              "devServerTarget": "schoolApp:serve:production"
+            }
+          }
+        },
+        "ionic-cordova-build": {
+          "builder": "@ionic/angular-toolkit:cordova-build",
+          "options": {
+            "browserTarget": "schoolApp:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "schoolApp:build:production"
+            }
           }
         }
       }

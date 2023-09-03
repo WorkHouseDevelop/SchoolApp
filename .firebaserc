@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "chat-app-9d28b": {
+      "hosting": {
+        "schoolApp": [
+          "chat-app-9d28b"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "chat-app-9d28b"
+  }
+}
